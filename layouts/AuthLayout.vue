@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="authContainer  flex  justify-center  items-center w-screen h-screen">
 
-  <Nuxt/>
+    <Nuxt/>
   </div>
 </template>
 
@@ -17,5 +17,7 @@ export default {
 </script>
 
 <style scoped>
-
+.authContainer{
+  background-color: #ffd60a;
+}
 </style>

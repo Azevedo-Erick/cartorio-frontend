@@ -1,13 +1,16 @@
 <template>
-<div class="grid main-wrapper  ">
+<div class="flex main h-screen flex-col  ">
 
-      <TopBar @toggleSideBar="toggleSideBar()"/>
-    <div id="layoutGrid" class="grid main" >
-          <SideBar/>
-        <div class="h-1/2 overflow-y-auto p-6">
-        <Nuxt />
-        </div>
-    </div>
+    <TopBar class="top-bar" :show-side-bar="showSideBar" @toggleSideBar="toggleSideBar()"/>
+          <div id="content-container" class="flex flex-row">
+
+          <SideBar class="side-bar w-2/12"/>
+    
+
+            <Nuxt class="nuxt overflow-y-auto w-full nuxt p-6" />
+       
+          </div>
+
 </div>
 </template>
 
@@ -22,16 +25,17 @@ export default {
           showSideBar:true
         }
     },
+    mounted(){
+      this.toggleSideBar()
+    }
+    ,
     methods: {
       toggleSideBar(){
-        const grid = document.getElementById("layoutGrid");
+        const grid = document.getElementById("content-container");
         if(this.showSideBar){
           grid.children[0].style.display="none";
-          grid.style.gridTemplateColumns = "1fr"
-          
         }else{
           grid.children[0].style.display="flex";
-          grid.style.gridTemplateColumns = "2fr 8fr"
         }
         this.showSideBar=!this.showSideBar;
       }
@@ -40,13 +44,10 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Nunito&family=Open+Sans&family=Roboto&family=Zen+Kurenaido&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Nunito&family=Open+Sans&family=Raleway:wght@200;300;500&family=Roboto&family=Zen+Kurenaido&display=swap');
 
-.main{
- 
-  grid-template-columns: 2fr 8fr;
-}
-.main-wrapper{
-   grid-auto-rows: 1fr 11fr;
+.nuxt{
+  max-height: 90vh;
+  height: 89vh;
 }
 </style>
