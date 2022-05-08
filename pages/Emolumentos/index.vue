@@ -41,6 +41,34 @@
                     <td class="border-r p-2">Lorem Ipsum</td>
                     <td class="p-2">90</td>
                 </tr>
+                <tr class="max-h-2">
+                    <td class="border-r p-2">Lorem Ipsum</td>
+                    <td class="p-2">90</td>
+                </tr>
+                <tr class="max-h-2">
+                    <td class="border-r p-2">Lorem Ipsum</td>
+                    <td class="p-2">90</td>
+                </tr>
+                <tr class="max-h-2">
+                    <td class="border-r p-2">Lorem Ipsum</td>
+                    <td class="p-2">90</td>
+                </tr>
+                <tr class="max-h-2">
+                    <td class="border-r p-2">Lorem Ipsum</td>
+                    <td class="p-2">90</td>
+                </tr>
+                <tr class="max-h-2">
+                    <td class="border-r p-2">Lorem Ipsum</td>
+                    <td class="p-2">90</td>
+                </tr>
+                <tr class="max-h-2">
+                    <td class="border-r p-2">Lorem Ipsum</td>
+                    <td class="p-2">90</td>
+                </tr>
+                <tr class="max-h-2">
+                    <td class="border-r p-2">Lorem Ipsum</td>
+                    <td class="p-2">90</td>
+                </tr>
             </tbody>
         </table>
     </div>
