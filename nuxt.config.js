@@ -21,7 +21,8 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -40,14 +41,50 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    
+    '@nuxtjs/auth-next'
+
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.API_URL,
   },
+  auth: {
+    token: {
+      prefix: '_token.',
+      global: true,
+    },
+    strategies: {
+      cookie: {
+        token: {
+          type: "Bearer",
+          property: "access_token",
+          required: true
+        },
+        endpoints: {
+          login: {
+            url: "/usuarios/login",
+            method: "post",
+            propertyName: "authenticationToken"
+          },
+
+          /*
+          user:{
+            url:"/aaaaa",
+            method:"get",
+            propertyName:null
+          }
+          */
+
+        }
+      },
+    },
+    redirect: {
+      home: "/"
+    }
+  }
+  ,
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

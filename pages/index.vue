@@ -5,6 +5,7 @@
 <script>
 export default {
   name: 'Inicio',
-  layout:'DefaultLayout'
+  layout:'DefaultLayout',
+  middleware:"auth"
 }
 </script>
