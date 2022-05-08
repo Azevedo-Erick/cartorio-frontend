@@ -4,7 +4,7 @@
     width="400"
   >
   <!--ONDE PEGAR OS ICONES: https://materialdesignicons.com/ -->
-    <v-list>
+    <v-list class="text">
       <v-list-item>
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
@@ -59,9 +59,11 @@
 nav {
     color: #ffffff;
 }
-nav a {
+.text {
     padding: 3px;
     text-decoration: none;
+    font-weight: bold;
+    color: white;
     font-family: 'Roboto', sans-serif;
 }
 </style>
