@@ -1,54 +1,104 @@
 <template>
-    <nav class="h-screen flex flex-col">
-        <nuxt-link to="/Inicio">
-            <h2 class="border-b p-5 text-xl">Inicio</h2>
-        </nuxt-link>
-        <div class="p-3 text-lg flex flex-col mb-4 overflow-y-scroll">
+  <v-card
+    class="mx-auto"
+    width="400"
+  >
+  <!--ONDE PEGAR OS ICONES: https://materialdesignicons.com/ -->
+    <v-list class="text">
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon>mdi-home</v-icon>
+        </v-list-item-icon>
 
-            <nuxt-link to="/ValorPrevio">Valores Previos</nuxt-link>
-            <nuxt-link to="/Emolumentos">Emolumentos</nuxt-link>
-            <nuxt-link to="/Apresentante">Apresentantes</nuxt-link>
-            <nuxt-link to="/Ato">Atos</nuxt-link>
-            <nuxt-link to="/Cartorio">Cartorios</nuxt-link>
-            <nuxt-link to="/Comarca">Cidades</nuxt-link>
-            <nuxt-link to="/Circunscricao">Circunscricões</nuxt-link>
-            <nuxt-link to="/Corregedoria">Corregedoria</nuxt-link>
-            <nuxt-link to="/Devolucao">Devoluções</nuxt-link>
-            <nuxt-link to="/Especialidade">Especialidades</nuxt-link>
-            <nuxt-link to="/Estado">Estados</nuxt-link>
-            <nuxt-link to="/Indenizacao">Indenizações</nuxt-link>
-            <nuxt-link to="/MotivoDevolucao">Motivos de Devoluções</nuxt-link>
-            <nuxt-link to="/Protocolo">Protocolos</nuxt-link>
-            <nuxt-link to="/Status">Status</nuxt-link>
-            <nuxt-link to="/Titular">Titulares</nuxt-link>
-        </div>
-    </nav>
+        <nuxt-link to="/">Início</nuxt-link>
+      </v-list-item>
+
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon>mdi-currency-usd</v-icon>
+        </v-list-item-icon>
+
+        <nuxt-link to="/ValorPrevio">Valores Previos</nuxt-link>
+      </v-list-item>
+
+<!-- simulando o dropdown aqui -->
+      <v-list-group
+        v-for="item in items"
+        :key="item.title"
+        v-model="item.active"
+        :prepend-icon="item.action"
+        no-action
+      >
+        <template v-slot:activator>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title"></v-list-item-title>
+          </v-list-item-content>
+        </template>
+
+        <v-list-item
+          v-for="child in item.items"
+          :key="child.title"
+        >
+          <v-list-item-content>
+            <v-list-item-title v-text="child.title"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-group>
+
+      
+    </v-list>
+  </v-card>
 </template>
 
 <script>
-export default {
-    name: 'SideBar',
-    data() {
-        return {}
-    },
-    computed: {
-       
-    },
-    methods: {
-    },
-}
+  export default {
+    data: () => ({
+      items: [
+        {
+          action: 'mdi-bank',
+          items: [
+              { title: 'Especialidade' },
+              { title: 'Emolumentos' },
+              { title: 'Atos' },
+          ],
+          title: 'Espécie Notarial',
+        },
+        {
+          action: 'mdi-hubspot',
+          items: [
+              { title: 'Corregedorias' },
+              { title: 'Comarcas' },
+              { title: 'Circunscrições' },
+              { title: 'Cartórios' },
+          ],
+          title: 'Unidades',
+        },
+        {
+          action: 'mdi-home-city',
+          items: [
+              { title: 'Cidades' },
+              { title: 'Estados' },
+          ],
+          title: 'Local',
+        },
+      ],
+    }),
+  }
 </script>
 
+
 <style scoped>
-nav {
+.nav {
     background-color: #333533;
 }
 nav {
     color: #ffffff;
 }
-nav a {
+.text {
     padding: 3px;
     text-decoration: none;
+    font-weight: bold;
+    /* color: white; */
     font-family: 'Roboto', sans-serif;
 }
 </style>
