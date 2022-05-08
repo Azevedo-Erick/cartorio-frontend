@@ -4,7 +4,7 @@
     <TopBar class="top-bar" :show-side-bar="showSideBar" @toggleSideBar="toggleSideBar()"/>
           <div id="content-container" class="flex flex-row">
 
-          <SideBar class="side-bar w-3/12"/>
+          <SideBar class="side-bar"/>
     
 
             <Nuxt class="nuxt overflow-y-auto w-full nuxt p-6" />

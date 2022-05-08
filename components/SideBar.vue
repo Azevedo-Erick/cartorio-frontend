@@ -2,9 +2,10 @@
   <v-card
     class="mx-auto"
     width="400"
+    dark
   >
   <!--ONDE PEGAR OS ICONES: https://materialdesignicons.com/ -->
-    <v-list class="text">
+    <v-list class="text" width="100%">
       <v-list-item>
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
@@ -40,7 +41,9 @@
           :key="child.title"
         >
           <v-list-item-content>
-            <v-list-item-title v-text="child.title"></v-list-item-title>
+            <nuxt-link :to='`${child.url}`' >
+              <v-list-item-title v-text="child.title"></v-list-item-title>
+            </nuxt-link>
           </v-list-item-content>
         </v-list-item>
       </v-list-group>
@@ -57,27 +60,27 @@
         {
           action: 'mdi-bank',
           items: [
-              { title: 'Especialidade' },
-              { title: 'Emolumentos' },
-              { title: 'Atos' },
+              { title: 'Especialidade',url:"Especialidade" },
+              { title: 'Emolumentos',url:"Emolumento" },
+              { title: 'Atos', url:"Ato"},
           ],
           title: 'Espécie Notarial',
         },
         {
           action: 'mdi-hubspot',
           items: [
-              { title: 'Corregedorias' },
-              { title: 'Comarcas' },
-              { title: 'Circunscrições' },
-              { title: 'Cartórios' },
+              { title: 'Corregedorias',url:"Corregedoria" },
+              { title: 'Comarcas',url:"Comarca" },
+              { title: 'Circunscrições',url:"Circunscricao" },
+              { title: 'Cartórios',url:"Cartorio" },
           ],
           title: 'Unidades',
         },
         {
           action: 'mdi-home-city',
           items: [
-              { title: 'Cidades' },
-              { title: 'Estados' },
+              { title: 'Cidades',url:"Cidade" },
+              { title: 'Estados',url:"Estado" },
           ],
           title: 'Local',
         },
@@ -88,12 +91,6 @@
 
 
 <style scoped>
-.nav {
-    background-color: #333533;
-}
-nav {
-    color: #ffffff;
-}
 .text {
     padding: 3px;
     text-decoration: none;
