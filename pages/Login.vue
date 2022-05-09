@@ -61,15 +61,12 @@ export default {
                 const cookie = await this.$auth.loginWith('cookie', {
                     data: this.formValues,
                 })
-                
-                // console.log(this.$store.state.auth)
-                console.log(cookie)
                 if(cookie){
                     this.$store.state.auth.loggedIn=true;
                     window.localStorage.setItem("acess_token", cookie.data.token);
                 }
-            } catch (e) {
-                console.log(e)
+            } catch(err){
+                console.log(err)
             }
         },
     },
